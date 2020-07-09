@@ -7,7 +7,7 @@
     </form>
     <br />
     <div>
-      <h3>{{tweet.content}}</h3>
+      <p>{{tweet.content}}</p>
     </div>
   </div>
 </template>
@@ -24,12 +24,15 @@ export default {
       }
     };
   },
+   props: {
+    user: Object
+  },
   methods: {
     async submitTweet() {
       try {
         const formData = new FormData();
         formData.append("content", this.tweet.content);
-        formData.append("user_id", 3);
+        formData.append("user_id", this.user.user_id);
 
         const { data } = await postData("tweets.json", formData);
         this.tweet = data.tweet;

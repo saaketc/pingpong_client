@@ -1,18 +1,21 @@
-import Vue from 'vue'
-import App from './App.vue'
-import VueRouter from 'vue-router'
-import Routes from './routes';
-import 'bootstrap/dist/css/bootstrap.css';
+import Vue from "vue";
+import App from "./App.vue";
+import VueRouter from "vue-router";
+import Routes from "./routes";
+import "bootstrap/dist/css/bootstrap.css";
+import Toasted from "vue-toasted";
 
-Vue.config.productionTip = false
+Vue.use(Toasted);
+
+Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
 const router = new VueRouter({
   routes: Routes,
-  mode: 'history'
+  mode: "history",
 });
 
 new Vue({
-  render: h => h(App),
-  router: router
-}).$mount('#app')
+  render: (h) => h(App),
+  router: router,
+}).$mount("#app");
