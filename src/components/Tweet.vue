@@ -2,8 +2,12 @@
   <div>
     <br />
     <form v-on:submit.prevent="submitTweet">
-      <input type="text" placeholder="What's on your mind?" v-model.lazy="tweet.content" />
-      <button type="submit">Ping</button>
+       <div style="textAlign: center">
+      <input type="text" placeholder="What's on your mind?" class="tweet" v-model.lazy="tweet.content" />
+      <br>
+     
+      <b-button pill class="btn" type="submit">Ping</b-button>
+      </div>
     </form>
     <br />
     <div>
@@ -45,4 +49,35 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.tweet{
+  padding-right: 200px;
+  padding-left: 200px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border: 2px solid black;
+  border-radius: 50px;
+
+}
+
+.btn {
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+align-items:center;
+  border: 1px solid #e91e63;
+  /* border-radius: 40px; */
+  background: #e91e63;
+  color: white;
+  font-weight: 700;
+}
+.btn:hover {
+  border: 1px solid #ec5386;
+  /* border-radius: 40px; */
+  background: #ec5386;
+  color: white;
+  font-weight: 700;
+}
+</style>

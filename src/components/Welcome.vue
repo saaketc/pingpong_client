@@ -1,9 +1,10 @@
 <template>
- <div>
+ <div class="home">
   <h1>Welcome to ping pong!</h1>
   <br>
-  <router-link to="/signup">Signup</router-link>
-  <router-link to="/login">Login</router-link>
+<b-btn href='/signup' outlined >Signup</b-btn>
+
+<b-btn href='/login' variant="outline-primary" class="mx-2">Login</b-btn>
   </div>
 </template>
 
