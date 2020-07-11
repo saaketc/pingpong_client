@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="tweet in tweetsData" :key="tweet.id">
-      <TweetItem v-bind:tweetItem="tweet"/>
+      <TweetItem v-bind:tweetItem="tweet" v-bind:showName="showName"/>
     </div>
   </div>
 </template>
@@ -11,7 +11,8 @@ import TweetItem from "./TweetItem";
 export default {
   name: "ShowTweets",
   props: {
-    tweetsData: Array
+    tweetsData: Array,
+    showName: Boolean
   },
   components: {
     TweetItem

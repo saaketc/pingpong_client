@@ -1,46 +1,28 @@
 <template>
   <div>
     <div
-      border-variant="light"
-      style="margin-top:10px;"
+      style="margin-top:10px; backgound: #121212"
       align="left"
-      v-for="item in tweetItem.tweets"
+      v-for="item in tweetItem.tweets.reverse()"
       :key="item.id"
     >
-      <b-row>
-        <b-col md='2' lg='2'>
-          <b-avatar
-            style="background: #e91e63"
-            v-bind:text="
-              avatarText(tweetItem.firstName + ' ' + tweetItem.lastName)
-            "
-          />
-        </b-col>
-        <b-col md='3' lg='3'>
-          <b-card-title style="font-size: 15px; text-align:left">{{
-            `${tweetItem.firstName} ${tweetItem.lastName}`
-          }}</b-card-title>
-        </b-col>
-      </b-row>
-
-      <b-card-text style="margin-left:110px">{{ item.content }}</b-card-text>
+      <Card v-bind:item="item" v-bind:data="tweetItem" v-bind:showName="showName"/>
     </div>
   </div>
 </template>
 
 <script>
+import Card from "./Card";
 export default {
   props: {
     tweetItem: Object,
+    showName: Boolean
   },
-  methods: {
-    avatarText(string) {
-      return string.split(" ")[0][0] + string.split(" ")[1][0];
-    },
+  components: {
+    Card
   },
+ 
 };
 </script>
 
-<style scoped>
 
-</style>

@@ -13,5 +13,5 @@ export default [
     {path: '/logout', component: Logout},
     {path: '/followPeople', component: FollowPeople},
     {path: '/feed', component: Feed},
-    {path: '/profile', component: Profile},
+    {path: '/profile', component: Profile, props: (route)=> ({query: route.query.user})},
 ]

@@ -1,10 +1,11 @@
 <template>
   <div class="sidenav">
-        <b-card
-        style="height: 100%; border-top:none; border-left:none"
-        >
+        
+        <br>
+     <Logo v-bind:user="user"/>
         <br>
         <br>
+         <br>
         <br>
     <router-link
       v-for="item in data"
@@ -22,14 +23,12 @@
       </b-row>
     </router-link>
     <br />
-    <Modal 
-   v-bind:user="user"/>
-        </b-card>
+  
   </div>
 </template>
 
 <script>
-import Modal from "./Modal";
+import Logo from "./Logo";
 
 export default {
   name: "Sidenav",
@@ -37,8 +36,9 @@ export default {
     data: Array,
     user: Object
   },
+ 
   components: {
-    Modal,
+    Logo
   },
 };
 </script>
@@ -51,10 +51,10 @@ export default {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: black;
   overflow-x: hidden;
   /* padding-top: 50px; */
-  margin-left: 100px;
+  /* margin-left: 100px; */
   /* margin-top: 80px; */
   /* border-right: 1px solid gray; */
 }
@@ -64,6 +64,23 @@ export default {
 }
 .link {
   text-decoration: none;
-  color: black;
+  color: white;
+}
+.btn {
+  padding-right: 30px;
+  padding-left: 30px;
+
+  border: 1px solid #e91e63;
+  /* border-radius: 40px; */
+  background: #e91e63;
+  color: white;
+  font-weight: 700;
+}
+.btn:hover {
+  border: 1px solid #ec5386;
+  /* border-radius: 40px; */
+  background: #ec5386;
+  color: white;
+  font-weight: 700;
 }
 </style>

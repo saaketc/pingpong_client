@@ -3,7 +3,10 @@
     
       <Tweet v-bind:user="user" />
       <div class="main">
-      <ShowTweets v-bind:tweetsData="feedData" />
+      <ShowTweets v-bind:tweetsData="feedData" v-bind:showName="showName"/>
+      <br>
+      <br>
+      <br>
     </div>
   </div>
 </template>
@@ -24,11 +27,14 @@ export default {
   data() {
     return {
       feedData: [],
+      showName: true
     };
   },
   props: {
     user: Object,
   },
+ 
+
   created() {
     const fetch = async () => {
       try {
@@ -48,7 +54,7 @@ export default {
 
 <style scoped>
 .main {
-  background: rgb(255, 255, 254);
-  margin-left: 80px;
+  background: rgb(255,255,254);
+  margin-left: 10px;
 }
 </style>
