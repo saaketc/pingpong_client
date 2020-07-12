@@ -1,15 +1,15 @@
 import axios from "axios";
-// import userServices from "./userServices";
-// const URL = "http://localhost:8765/api";
-const URL = "http://pingpong-env.eba-c8gpb7nw.ap-south-1.elasticbeanstalk.com/api";
-const newsApiKey = "7025d539d43b41de90fcfd2acdc69660";
-const newsEndpoint = "http://newsapi.org/v2/top-headlines";
+
+const URL =
+  "http://pingpong-env.eba-c8gpb7nw.ap-south-1.elasticbeanstalk.com/api";
+
+const newsApiKey = "0FE5C5EF4D254A2B98E398588A37FA46";
+const newsEndpoint = `https://api.breakingapi.com/news?type=headlines&q=business&locale=en-US&api_key=${newsApiKey}`;
 
 const config = {
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
     // "x-auth-token": userServices.getToken(),
-    
   },
 };
 
@@ -23,7 +23,7 @@ export const getData = (resource, params = null) => {
 };
 
 export const getNews = () => {
-  return axios.get(`${newsEndpoint}?country=in&apiKey=${newsApiKey}`);
+  return axios.get(newsEndpoint);
 };
 
 export const postData = (resource, data) => {

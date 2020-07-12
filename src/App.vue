@@ -16,7 +16,7 @@
       </b-col>
       <b-col sm="12" md="3" lg="3" v-if="user">
         <div class="rightSidenav">
-          <ShowNews v-bind:news="news" />
+          <ShowNews />
         </div>
       </b-col>
     </b-row>
@@ -47,7 +47,6 @@ export default {
       { title: "Follow More", link: "/followPeople", icon: "people" },
       { title: "Logout", link: "/logout", icon: "box-arrow-left" }
     ],
-    news: {}
   }),
   created() {
     this.user = userServices.getCurrentUser();

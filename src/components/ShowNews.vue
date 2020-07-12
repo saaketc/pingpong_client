@@ -4,10 +4,23 @@
       What's happening
       <br />around?
     </h2>
-    <div class="card" v-for="item in news" :key="item.title">
-      <small style="color:#e91e63; margin-left:15px;">{{item.author}}</small>
+    <br />
+    <h4 class="title loading" style="color: #e91e63" v-show="loading">Getting news...</h4>
+
+    <div
+      class="main"
+      v-on:click="gotToArticle(item.link)"
+      v-for="item in news"
+      :key="item.title"
+    >
+      <img
+        v-bind:src="item.primary_image_link"
+        width="300"
+        height="200"
+        alt=""
+      />
       <div class="container">
-        <h6>{{stringSlice(item.title)}}</h6>
+        <h6 class="title" >{{ stringSlice(item.title) }}</h6>
       </div>
     </div>
     <br />
@@ -24,31 +37,39 @@ export default {
   name: "ShowNews",
   data() {
     return {
-      news: {}
+      news: {},
+      loading: true,
     };
   },
   methods: {
-    stringSlice
+    stringSlice,
+    gotToArticle(link) {
+      return window.open(link, "_blank");
+    },
   },
   props: {
-    user: Object
+    user: Object,
   },
   created() {
     const fetchNews = async () => {
       try {
         const { data } = await getNews();
-        console.log(data);
+        console.log(data.articles);
         this.news = data.articles;
+        this.loading = false;
       } catch (e) {
         console.log(e.message);
       }
     };
     fetchNews();
-  }
+  },
 };
 </script>
 
 <style scoped>
+.loading{
+  margin-top: 30%;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -59,6 +80,7 @@ export default {
   background: #343434;
   color: white;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -67,10 +89,14 @@ export default {
 
 .container {
   padding: 2px 16px;
-  color: white;
-  margin-top: 10px;
+  color: black;
+  margin-top: 20px;
 }
 .title {
   font-weight: 900;
+}
+.main {
+  cursor: pointer;
+  margin-top: 40px;
 }
 </style>
