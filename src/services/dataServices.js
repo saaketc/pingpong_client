@@ -1,6 +1,7 @@
 import axios from "axios";
 // import userServices from "./userServices";
-const URL = "http://localhost:8765/api";
+// const URL = "http://localhost:8765/api";
+const URL = "http://pingpong-env.eba-c8gpb7nw.ap-south-1.elasticbeanstalk.com/api";
 const newsApiKey = "7025d539d43b41de90fcfd2acdc69660";
 const newsEndpoint = "http://newsapi.org/v2/top-headlines";
 

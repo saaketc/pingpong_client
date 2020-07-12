@@ -1,8 +1,8 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 
-const url = "http://localhost:8765/api";
-
+// const url = "http://localhost:8765/api";
+const url = "http://pingpong-env.eba-c8gpb7nw.ap-south-1.elasticbeanstalk.com/api";
 const tokenKey = "privateUserToken";
 
 const getToken = () => {
